@@ -18,8 +18,8 @@ const common = {
 	// We'll be using the latter form given it's
 	// convenient with more complex configurations.
 	entry: {
-		app: PATHS.app,
-		style: PATHS.style
+		style: PATHS.style,
+		app: PATHS.app
 	},
 	output: {
 		path: PATHS.build,
@@ -34,6 +34,7 @@ const common = {
 
 var config;
 
+// Detect how npm is run and branch based on that
 switch(process.env.npm_lifecycle_event) {
 	case 'build':
 		config = merge(common,
@@ -58,11 +59,12 @@ switch(process.env.npm_lifecycle_event) {
 			}),
 			parts.minify(),
 			parts.extractCSS(PATHS.style),
-			parts.purifyCSS(PATHS.style)
+			parts.purifyCSS([PATHS.app])
 		);
 		break;
 	default:
-		config = merge(common,
+		config = merge(
+			common,
 			{
 				devtool: 'eval-source-map'
 			},
