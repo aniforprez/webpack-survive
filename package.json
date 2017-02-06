@@ -6,10 +6,15 @@
   "author": "Anirudh S <ani.22691@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack"
+    "test:lint": "eslint . --cache",
+    "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
+    "build": "webpack --env production"
   },
   "devDependencies": {
+    "eslint": "^3.15.0",
+    "eslint-loader": "^1.6.1",
     "html-webpack-plugin": "^2.28.0",
+    "nodemon": "^1.11.0",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0"
   }
