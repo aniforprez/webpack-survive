@@ -120,3 +120,60 @@ exports.lintCSS = function({ include, exclude }) {
 		}
 	};
 };
+
+exports.loadImages = function({ include, exclude, options } = {}) {
+	return {
+		module: {
+			rules: [
+				{
+					test: /\.(png|jpe?g)$/,
+					include,
+					exclude,
+
+					use: {
+						loader: 'url-loader',
+						options
+					}
+				}
+			]
+		}
+	};
+};
+
+exports.loadSVG = function({ include, exclude, options } = {}) {
+	return {
+		module: {
+			rules: [
+				{
+					test: /\.svg$/,
+					include,
+					exclude,
+
+					use: {
+						loader: 'file-loader',
+						options
+					}
+				}
+			]
+		}
+	};
+};
+
+exports.loadFonts = function({ include, exclude, options } = {}) {
+	return {
+		module: {
+			rules: [
+				{
+					test: /\.(woff2?|ttf|svg|eot)(\?v=\d+\.\d+\.\d+)?$/,
+					include,
+					exclude,
+
+					use: {
+						loader: 'file-loader',
+						options
+					}
+				}
+			]
+		}
+	};
+};

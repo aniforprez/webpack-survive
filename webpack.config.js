@@ -26,7 +26,18 @@ const common = merge([
 			})
 		]
 	},
-	parts.lintCSS({ include: PATHS.app })
+	parts.lintCSS({ include: PATHS.app }),
+	parts.loadImages({
+		options: {
+			limit: 15000
+		}
+	}),
+	parts.loadSVG({
+		options: {
+			name: '[name].[hash].[ext]'
+		}
+	}),
+	parts.loadFonts()
 ]);
 
 module.exports = function(env) {

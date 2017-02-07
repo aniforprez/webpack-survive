@@ -1,5 +1,8 @@
 body {
-	background: #FFF;
+	background: #fff;
+	background-image: url('./pacman.svg');
+	background-repeat: no-repeat;
+	background-position: center;
 	display: flex;
 }
 
