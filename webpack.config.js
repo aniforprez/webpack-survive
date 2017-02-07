@@ -54,8 +54,9 @@ module.exports = function(env) {
 					}
 				]
 			}),
-			// parts.generateSourceMaps({ type: 'source-maps' }),
+			parts.generateSourceMaps({ type: 'source-maps' }),
 			parts.lintJavascript({ include: PATHS.app }),
+			parts.minifyJavascript({ useSourceMap: true }),
 			parts.extractCSS({ use: ['css-loader', parts.autoprefix()] }),
 			parts.purifyCSS({
 				paths: glob.sync(path.join(PATHS.app, '**', '*'))

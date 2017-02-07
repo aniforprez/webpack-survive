@@ -55,6 +55,22 @@ exports.loadJavascript = function({ include, exclude }) {
 	};
 };
 
+exports.minifyJavascript = function({ useSourceMap }) {
+	return {
+		plugins: [
+			new webpack.optimize.UglifyJsPlugin({
+				sourceMap: useSourceMap,
+				compress: {
+					warnings: false
+				},
+				mangle: {
+					except: ['webpackJsonp']
+				}
+			})
+		]
+	};
+};
+
 exports.loadCSS = function({ include, exclude } = {}) {
 	return {
 		module: {
