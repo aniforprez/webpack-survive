@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -72,23 +72,38 @@
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = function() {
-    const element = document.createElement('h1');
+	const element = document.createElement('h1');
 
-    element.innerHTML = 'Hello World';
+	element.className = 'pure-button';
+	element.innerHTML = 'Hello World';
 
-    return element;
+	return element;
 };
+
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__component__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_purecss__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_purecss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_purecss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(0);
+
+// import styles from './main.css';
 
 
-document.body.appendChild(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__component__["a" /* default */])());
+let element = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__component__["a" /* default */])();
+// element.className = styles.redText;
+document.body.appendChild(element);
+
 
 /***/ })
 /******/ ]);
