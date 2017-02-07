@@ -1,4 +1,5 @@
 import 'purecss';
+import 'react';
 import styles from './main.css';
 import component from './component';
 import 'font-awesome/css/font-awesome.css';

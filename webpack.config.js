@@ -14,7 +14,7 @@ const PATHS = {
 const common = merge([
 	{
 		entry: {
-			app: PATHS.app
+			app: ['babel-polyfill', PATHS.app]
 		},
 		output: {
 			path: PATHS.build,
@@ -26,6 +26,7 @@ const common = merge([
 			})
 		]
 	},
+	parts.loadJavascript({ include: PATHS.app }),
 	parts.lintCSS({ include: PATHS.app }),
 	parts.loadImages({
 		options: {
@@ -44,6 +45,16 @@ module.exports = function(env) {
 	if(env == 'production') {
 		return merge([
 			common,
+			parts.clean(PATHS.build),
+			parts.extractBundles({
+				bundles: [
+					{
+						name: 'vendor',
+						entries: ['react']
+					}
+				]
+			}),
+			// parts.generateSourceMaps({ type: 'source-maps' }),
 			parts.lintJavascript({ include: PATHS.app }),
 			parts.extractCSS({ use: ['css-loader', parts.autoprefix()] }),
 			parts.purifyCSS({
